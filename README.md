@@ -33,8 +33,8 @@ Sequential Movement (Up/Down) prediction
 Null model (last movement):
 Estimated probability of guessing right: 0.5017
 
-MLP-Classifier (o1): 0.7116
-MLP-Classifier (o2): 0.7386
-MLP-Classifier (o4): 0.7326
-MLP-Classifier (o8): 0.7221
+MLP-Classifier (o1): 0.5624
+MLP-Classifier (o2): 0.5626
+MLP-Classifier (o4): 0.5631
+MLP-Classifier (o8): 0.5624
 ```
