@@ -70,9 +70,9 @@ double PredictTimeSeriesMovement(int order,const std::vector<double>&data)
 
       double p0=nn.Output()[0];
       double p1=nn.Output()[1];
-      int plabel=p0>p1?1:0;
+      int plabel=p0>0?1:0;
 
-      int label=data[i]>data[i-1]?1:0;
+      int label=data[i]>0?1:0;
 
       if (plabel==label) guess_right++;
       guess_total++;
@@ -122,14 +122,14 @@ int main()
       std::cout << "NULL:          " << std::setprecision(4) << e << "\n";
 
       std::cout << "OLS with cholesky decomposition:\n";
-      for (int k=0;k<=5;k++) {
+      for (int k=0;k<=3;k++) {
         int order=1<<k;
         double rmse=PredictTimeSeriesOLS(order,returns,pred);
         std::cout << "MAE OLS (o" << order << "): " << std::setprecision(4) << rmse << "\n";
       }
       std::cout << '\n';
       std::cout << "MLP with adam optimizer:\n";
-      for (int k=0;k<=5;k++) {
+      for (int k=0;k<=3;k++) {
         int order=1<<k;
         double rmse=PredictTimeSeriesMLP(order,returns,pred);
         std::cout << "MAE MLP (o" << order << "): " << std::setprecision(4) << rmse << "\n";
@@ -148,7 +148,7 @@ int main()
       double p=guess_right/static_cast<double>(guess_total);
       std::cout << "Estimated probability of guessing right: " << p << '\n';
 
-      for (int k=0;k<=5;k++) {
+      for (int k=0;k<=3;k++) {
         int order=1<<k;
         p=PredictTimeSeriesMovement(order,returns);
         std::cout << "MLP-Classifier (o" << order << "): " << p << '\n';
