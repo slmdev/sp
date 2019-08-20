@@ -24,8 +24,7 @@ MAE MLP (o4): 0.01618
 MAE MLP (o8): 0.01619
 ```
 
-The second model tries to soley predict the next weeks movement (up/down) via a MLP classifier
-The model has 1 hidden layer with 32 units, ReLU activation function, adam optimizer and softmax output.
+The second model tries to soley predict the next weeks movement (up/down) via a MLP classifier. The model has 1 hidden layer with 32 units, ReLU activation function, adam optimizer and softmax output.
 
 Output of the model is the probability of guessing the movement right:
 ```
